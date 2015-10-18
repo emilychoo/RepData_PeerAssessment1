@@ -4,6 +4,7 @@ output:
   html_document:
     keep_md: true
 ---
+
 #### Install packages
 ```{r, message=FALSE}
 # Install the required packages if they are not found
@@ -15,15 +16,11 @@ for (package in c('ggplot2', 'lubridate', 'RColorBrewer', 'dplyr', 'ggthemes', '
 }
 ```
 
-
 ## Loading and preprocessing the data
 #### 1. Load the data
 ```{r}
 # Clear the workspace
 rm(list = ls(all = TRUE))
-
-# Set path
-setwd("~/Documents/Copy/Emily/DataScienceCoursera/Reproducible Research/Peer_Assignment_01")
 
 # Unzip data file if it is not found
 if(!file.exists('activity.csv')){
@@ -176,4 +173,3 @@ xyplot(steps ~ interval | dayType, averagedActivity_new, type = "l", layout = c(
 # Clear the workspace
 rm(list = ls(all = TRUE))
 ```
-
