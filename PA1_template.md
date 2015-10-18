@@ -88,7 +88,7 @@ hist(steps_by_day,
      main="Histogram of the total number of steps taken each day\n(with NA removed)")
 ```
 
-![](Peer_Assignment_01_files/figure-html/unnamed-chunk-5-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
 
 
 ### 3. Calculate and report the mean and median total number of steps taken per day. 
@@ -126,7 +126,7 @@ steps_by_interval_means <- aggregate(steps ~ interval, data = activity, FUN = me
 plot(steps_by_interval_means, type = "l")
 ```
 
-![](Peer_Assignment_01_files/figure-html/unnamed-chunk-8-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
 
 #### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -178,7 +178,7 @@ steps_by_day_new <- tapply(activity_new$steps, activity_new$date, sum)
 qplot(steps_by_day_new, xlab='Total steps per day (Replaced Missing Values)', ylab='Frequency using binwith 500', binwidth=500)
 ```
 
-![](Peer_Assignment_01_files/figure-html/unnamed-chunk-13-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-13-1.png) 
 
 ##### The mean total number of steps taken per day is: 
 
@@ -222,7 +222,7 @@ xyplot(steps ~ interval | dayType, averagedActivity_new, type = "l", layout = c(
     xlab = "Interval", ylab = "Number of steps")
 ```
 
-![](Peer_Assignment_01_files/figure-html/unnamed-chunk-17-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-17-1.png) 
 
 
 ```r
