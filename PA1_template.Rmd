@@ -4,7 +4,6 @@ output:
   html_document:
     keep_md: true
 ---
-
 #### Install packages
 ```{r, message=FALSE}
 # Install the required packages if they are not found
@@ -161,6 +160,20 @@ The mean and median before and after replacing missing values are greatly differ
 ### Are there differences in activity patterns between weekdays and weekends?
 #### 1. Create a new factor variable in the dataset with two levels - weekdays and weekend indicating whether a given date is a weekday or weekend day.
 ```{r}
-activity_new$datetype <-  ifelse(as.POSIXlt(activity_new$date)$wday %in% c(0,6), 'weekend', 'weekday')
+activity_new$dayType <-  ifelse(as.POSIXlt(activity_new$date)$wday %in% c(0,6), 'Weekend', 'Weekday')
+```
+
+#### 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5- minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
+```{r}
+averagedActivity_new <- aggregate(steps ~ interval + dayType, data=activity_new, mean)
+names(averagedActivity_new) <- c("interval", "dayType", "steps")
+
+xyplot(steps ~ interval | dayType, averagedActivity_new, type = "l", layout = c(1, 2), 
+    xlab = "Interval", ylab = "Number of steps")
+```
+
+```{r}
+# Clear the workspace
+rm(list = ls(all = TRUE))
 ```
 
